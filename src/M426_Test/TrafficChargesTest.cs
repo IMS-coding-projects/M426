@@ -5,6 +5,35 @@ namespace M426_Test
     [TestClass]
     public sealed class TrafficChargesTest
     {
+        private readonly TrafficCharges _trafficCharges;
+
+        public TrafficChargesTest()
+        {
+            var list = new List<TaxRange>
+            {
+                new TaxRange(int.MinValue, 1200, 69),
+                new TaxRange(1201, 1400, 88),
+                new TaxRange(1401, 1600, 108),
+                new TaxRange(1601, 1800, 128),
+                new TaxRange(1801, 2000, 148),
+                new TaxRange(2001, 2500, 208),
+                new TaxRange(2501, 3000, 358),
+                new TaxRange(3001, 3500, 508),
+                new TaxRange(3501, 4000, 658),
+                new TaxRange(4001, 4500, 808),
+                new TaxRange(4501, 5000, 958),
+                new TaxRange(5001, 5500, 1108),
+                new TaxRange(5501, 6000, 1258),
+                new TaxRange(6001, 7000, 1558),
+                new TaxRange(7001, 8000, 1858),
+                new TaxRange(8001, 9000, 2158),
+                new TaxRange(9001, 10000, 2458),
+                new TaxRange(10001, 11000, 2758),
+            };
+            
+            _trafficCharges = new TrafficCharges(list, 300);
+        }
+        
         [TestMethod]
         public void CubicCapacity0_EngineCubicCapacity_ResultTax_69()
         {
@@ -13,7 +42,7 @@ namespace M426_Test
             const double expectedTax = 69;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -27,7 +56,7 @@ namespace M426_Test
             const double expectedTax = 69;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -41,7 +70,7 @@ namespace M426_Test
             const double expectedTax = 69;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -55,7 +84,7 @@ namespace M426_Test
             const double expectedTax = 88;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -69,7 +98,7 @@ namespace M426_Test
             const double expectedTax = 88;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -83,7 +112,7 @@ namespace M426_Test
             const double expectedTax = 108;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -97,7 +126,7 @@ namespace M426_Test
             const double expectedTax = 108;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -111,7 +140,7 @@ namespace M426_Test
             const double expectedTax = 128;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -125,7 +154,7 @@ namespace M426_Test
             const double expectedTax = 128;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -139,7 +168,7 @@ namespace M426_Test
             const double expectedTax = 148;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -153,7 +182,7 @@ namespace M426_Test
             const double expectedTax = 148;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -167,7 +196,7 @@ namespace M426_Test
             const double expectedTax = 208;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -181,7 +210,7 @@ namespace M426_Test
             const double expectedTax = 208;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -195,7 +224,7 @@ namespace M426_Test
             const double expectedTax = 358;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -209,7 +238,7 @@ namespace M426_Test
             const double expectedTax = 358;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -223,7 +252,7 @@ namespace M426_Test
             const double expectedTax = 508;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -237,7 +266,7 @@ namespace M426_Test
             const double expectedTax = 508;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -251,7 +280,7 @@ namespace M426_Test
             const double expectedTax = 658;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -265,7 +294,7 @@ namespace M426_Test
             const double expectedTax = 658;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -279,7 +308,7 @@ namespace M426_Test
             const double expectedTax = 808;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -293,7 +322,7 @@ namespace M426_Test
             const double expectedTax = 808;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -307,7 +336,7 @@ namespace M426_Test
             const double expectedTax = 958;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -321,7 +350,7 @@ namespace M426_Test
             const double expectedTax = 958;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -335,7 +364,7 @@ namespace M426_Test
             const double expectedTax = 1108;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -349,7 +378,7 @@ namespace M426_Test
             const double expectedTax = 1108;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -363,7 +392,7 @@ namespace M426_Test
             const double expectedTax = 1258;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -377,7 +406,7 @@ namespace M426_Test
             const double expectedTax = 1258;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -391,7 +420,7 @@ namespace M426_Test
             const double expectedTax = 1558;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -405,7 +434,7 @@ namespace M426_Test
             const double expectedTax = 1558;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -419,7 +448,7 @@ namespace M426_Test
             const double expectedTax = 1858;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -433,7 +462,7 @@ namespace M426_Test
             const double expectedTax = 1858;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -447,7 +476,7 @@ namespace M426_Test
             const double expectedTax = 2158;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -461,7 +490,7 @@ namespace M426_Test
             const double expectedTax = 2158;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -475,7 +504,7 @@ namespace M426_Test
             const double expectedTax = 2458;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -489,7 +518,7 @@ namespace M426_Test
             const double expectedTax = 2458;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -503,7 +532,7 @@ namespace M426_Test
             const double expectedTax = 2758;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -517,7 +546,7 @@ namespace M426_Test
             const double expectedTax = 2758;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -532,7 +561,7 @@ namespace M426_Test
             const double expectedTax = 69;
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);
@@ -546,7 +575,7 @@ namespace M426_Test
             const double expectedTax = 2758+(9*300); // 2758 + (20-11)*300 = 5458
             
             // Act
-            var actual = TrafficCharges.EngineCubicCapacity(cubicCapacity);
+            var actual = _trafficCharges.EngineCubicCapacity(cubicCapacity);
             
             // Assert
             Assert.AreEqual(expectedTax, actual);

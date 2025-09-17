@@ -1,43 +1,35 @@
-﻿namespace M426
+﻿using System.Collections;
+
+namespace M426
 {
-    public static class TrafficCharges
+    public class TrafficCharges(List<TaxRange> taxRanges, int additionalTaxPer1000CcOverLimit)
     {
-        public static double EngineCubicCapacity(double cubicCapacity)
+        private List<TaxRange> TaxRanges { get; set; } = taxRanges;
+        private int AdditionalTaxPer1000CcOverLimit { get; set; } = additionalTaxPer1000CcOverLimit;
+
+        // constructor
+
+        public double EngineCubicCapacity(double cubicCapacity)
         {
             double tax = 0;
-
-            // Calculate additional tax based on cubic capacity over thousands of cc
-            //tax += ((int)(cubicCapacity / 1000) - 11) * 0.3;
-
-            // Use switch with range patterns
-            tax += cubicCapacity switch
-            {
-                <= 1200 => 69,
-                <= 1400 => 88,
-                <= 1600 => 108,
-                <= 1800 => 128,
-                <= 2000 => 148,
-                <= 2500 => 208,
-                <= 3000 => 358,
-                <= 3500 => 508,
-                <= 4000 => 658,
-                <= 4500 => 808,
-                <= 5000 => 958,
-                <= 5500 => 1108,
-                <= 6000 => 1258,
-                <= 7000 => 1558,
-                <= 8000 => 1858,
-                <= 9000 => 2158,
-                <= 10000 => 2458,
-                <= 11000 => 2758,
-                _ => 0
-            };
+            double maxCubicCapacity = 0;
+            double maxCubicCapacityTax = 0;
             
-            if (cubicCapacity > 11000)
+            foreach (var taxRange in TaxRanges)
             {
-                tax += 2758 + (Math.Ceiling(cubicCapacity / 1000) - 11) * 300;
+                maxCubicCapacity = taxRange.max;
+                maxCubicCapacityTax = taxRange.tax;
+                if (cubicCapacity <= taxRange.max && cubicCapacity >= taxRange.min)
+                {
+                    return taxRange.tax;
+                }
             }
-
+            
+            if (cubicCapacity > maxCubicCapacity)
+            {
+                tax += maxCubicCapacityTax + (Math.Ceiling(cubicCapacity / 1000) - maxCubicCapacity / 1000) * additionalTaxPer1000CcOverLimit;
+            }
+            
             return tax;
         }
     }
